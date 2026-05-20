@@ -36,22 +36,13 @@ class SplashScreenView extends StatelessWidget {
               // DocuScan Text
               const Text(
                 'DocuScan',
-                style: TextStyle(
-                  fontSize: 34,
-                  fontWeight: FontWeight.w800,
-                  color: Colors.white,
-                  letterSpacing: -0.5,
-                ),
+                style: TextStyle(fontSize: 34, fontWeight: FontWeight.w800, color: Colors.white, letterSpacing: -0.5),
               ),
               const SizedBox(height: 8),
               // Subtitle
               const Text(
                 'Smart Document Scanner',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.white70,
-                  fontWeight: FontWeight.w400,
-                ),
+                style: TextStyle(fontSize: 16, color: Colors.white70, fontWeight: FontWeight.w400),
               ),
               const SizedBox(height: 36),
               // Sequential fading loading dots
@@ -60,12 +51,7 @@ class SplashScreenView extends StatelessWidget {
               // Powered by OCR text
               const Text(
                 'Powered by OCR Technology',
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.white54,
-                  fontWeight: FontWeight.w400,
-                  letterSpacing: 0.2,
-                ),
+                style: TextStyle(fontSize: 12, color: Colors.white54, fontWeight: FontWeight.w400, letterSpacing: 0.2),
               ),
               const SizedBox(height: 20),
             ],
@@ -88,13 +74,7 @@ class DocuScanLogo extends StatelessWidget {
       decoration: const BoxDecoration(
         color: Colors.white,
         shape: BoxShape.circle,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 15,
-            offset: Offset(0, 8),
-          ),
-        ],
+        boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 15, offset: Offset(0, 8))],
       ),
       child: Center(
         child: SizedBox(
@@ -113,22 +93,11 @@ class DocuScanLogo extends StatelessWidget {
                   child: Container(
                     width: 62,
                     height: 40,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF0F56FA),
-                      borderRadius: BorderRadius.circular(6),
-                    ),
+                    decoration: BoxDecoration(color: const Color(0xFF0F56FA), borderRadius: BorderRadius.circular(6)),
                     child: Stack(
                       children: [
                         // Card Stripe
-                        Positioned(
-                          top: 8,
-                          left: 0,
-                          right: 0,
-                          child: Container(
-                            height: 6,
-                            color: Colors.white.withAlpha(242),
-                          ),
-                        ),
+                        Positioned(top: 8, left: 0, right: 0, child: Container(height: 6, color: Colors.white.withAlpha(242))),
                         // Small chip/signature details
                         Positioned(
                           bottom: 6,
@@ -136,10 +105,7 @@ class DocuScanLogo extends StatelessWidget {
                           child: Container(
                             width: 10,
                             height: 7,
-                            decoration: BoxDecoration(
-                              color: Colors.white.withAlpha(242),
-                              borderRadius: BorderRadius.circular(1.5),
-                            ),
+                            decoration: BoxDecoration(color: Colors.white.withAlpha(242), borderRadius: BorderRadius.circular(1.5)),
                           ),
                         ),
                       ],
@@ -158,19 +124,10 @@ class DocuScanLogo extends StatelessWidget {
                     color: const Color(0xFF0F56FA),
                     shape: BoxShape.circle,
                     border: Border.all(color: Colors.white, width: 2),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withAlpha(38),
-                        blurRadius: 4,
-                        offset: const Offset(0, 2),
-                      ),
-                    ],
+                    boxShadow: [BoxShadow(color: Colors.black.withAlpha(38), blurRadius: 4, offset: const Offset(0, 2))],
                   ),
                   child: Center(
-                    child: CustomPaint(
-                      size: const Size(12, 12),
-                      painter: ReticlePainter(),
-                    ),
+                    child: CustomPaint(size: const Size(12, 12), painter: ReticlePainter()),
                   ),
                 ),
               ),
@@ -229,10 +186,7 @@ class _LoadingDotsState extends State<LoadingDots> with SingleTickerProviderStat
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 1200),
-    )..repeat();
+    _controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 1200))..repeat();
   }
 
   @override
@@ -253,20 +207,14 @@ class _LoadingDotsState extends State<LoadingDots> with SingleTickerProviderStat
             final double value = (sin((_controller.value * 2 * pi) - (delay * 2 * pi)) + 1) / 2;
             return Opacity(
               opacity: 0.3 + (value * 0.7),
-              child: Transform.scale(
-                scale: 0.8 + (value * 0.4),
-                child: child,
-              ),
+              child: Transform.scale(scale: 0.8 + (value * 0.4), child: child),
             );
           },
           child: Container(
             margin: const EdgeInsets.symmetric(horizontal: 4.0),
             width: 8,
             height: 8,
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              shape: BoxShape.circle,
-            ),
+            decoration: const BoxDecoration(color: Colors.white, shape: BoxShape.circle),
           ),
         );
       }),

@@ -37,16 +37,9 @@ class PassbookScannerController extends GetxController {
         return;
       }
 
-      final backCamera = cameras.firstWhere(
-        (c) => c.lensDirection == CameraLensDirection.back,
-        orElse: () => cameras.first,
-      );
+      final backCamera = cameras.firstWhere((c) => c.lensDirection == CameraLensDirection.back, orElse: () => cameras.first);
 
-      cameraController = CameraController(
-        backCamera,
-        ResolutionPreset.high,
-        enableAudio: false,
-      );
+      cameraController = CameraController(backCamera, ResolutionPreset.high, enableAudio: false);
 
       await cameraController!.initialize();
       isCameraInitialized.value = true;

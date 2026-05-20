@@ -21,29 +21,17 @@ class HomeScreenView extends StatelessWidget {
                 // Header Title
                 const Text(
                   'Document Scanner',
-                  style: TextStyle(
-                    fontSize: 26,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFF0F172A),
-                    letterSpacing: -0.5,
-                  ),
+                  style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold, color: Color(0xFF0F172A), letterSpacing: -0.5),
                 ),
                 const SizedBox(height: 6),
                 // Header Subtitle
                 const Text(
                   'Scan cards and passbooks with OCR',
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: Color(0xFF64748B),
-                    fontWeight: FontWeight.w400,
-                  ),
+                  style: TextStyle(fontSize: 14, color: Color(0xFF64748B), fontWeight: FontWeight.w400),
                 ),
                 const SizedBox(height: 12),
                 // Divider
-                const Divider(
-                  color: Color(0xFFE2E8F0),
-                  thickness: 1,
-                ),
+                const Divider(color: Color(0xFFE2E8F0), thickness: 1),
                 const SizedBox(height: 24),
                 // Card 1: Scan Card
                 _buildActionCard(
@@ -92,16 +80,8 @@ class HomeScreenView extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
-          BoxShadow(
-            color: const Color(0xFF0F172A).withAlpha(10),
-            blurRadius: 16,
-            offset: const Offset(0, 8),
-          ),
-          BoxShadow(
-            color: const Color(0xFF0F172A).withAlpha(5),
-            blurRadius: 4,
-            offset: const Offset(0, 2),
-          ),
+          BoxShadow(color: const Color(0xFF0F172A).withAlpha(10), blurRadius: 16, offset: const Offset(0, 8)),
+          BoxShadow(color: const Color(0xFF0F172A).withAlpha(5), blurRadius: 4, offset: const Offset(0, 2)),
         ],
       ),
       child: Material(
@@ -120,17 +100,8 @@ class HomeScreenView extends StatelessWidget {
                 Container(
                   width: 50,
                   height: 50,
-                  decoration: BoxDecoration(
-                    color: iconBgColor,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Center(
-                    child: Icon(
-                      icon,
-                      color: iconColor,
-                      size: 24,
-                    ),
-                  ),
+                  decoration: BoxDecoration(color: iconBgColor, shape: BoxShape.circle),
+                  child: Center(child: Icon(icon, color: iconColor, size: 24)),
                 ),
                 const SizedBox(width: 16),
                 // Text details
@@ -140,21 +111,10 @@ class HomeScreenView extends StatelessWidget {
                     children: [
                       Text(
                         title,
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFF0F172A),
-                        ),
+                        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Color(0xFF0F172A)),
                       ),
                       const SizedBox(height: 4),
-                      Text(
-                        subtitle,
-                        style: const TextStyle(
-                          fontSize: 13,
-                          color: Color(0xFF64748B),
-                          height: 1.3,
-                        ),
-                      ),
+                      Text(subtitle, style: const TextStyle(fontSize: 13, color: Color(0xFF64748B), height: 1.3)),
                     ],
                   ),
                 ),
@@ -171,10 +131,7 @@ class HomeScreenView extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         color: const Color(0xFFF0F7FF),
-        border: Border.all(
-          color: const Color(0xFFD0E7FF),
-          width: 1.2,
-        ),
+        border: Border.all(color: const Color(0xFFD0E7FF), width: 1.2),
         borderRadius: BorderRadius.circular(12),
       ),
       padding: const EdgeInsets.all(18.0),
@@ -183,11 +140,7 @@ class HomeScreenView extends StatelessWidget {
         children: [
           const Text(
             'How it works',
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFF0F56FA),
-            ),
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Color(0xFF0F56FA)),
           ),
           const SizedBox(height: 14),
           _buildHowItWorksItem('Capture image using camera or upload'),
@@ -210,22 +163,13 @@ class HomeScreenView extends StatelessWidget {
           padding: EdgeInsets.only(top: 2.0),
           child: Text(
             '• ',
-            style: TextStyle(
-              color: Color(0xFF0F56FA),
-              fontSize: 15,
-              fontWeight: FontWeight.bold,
-            ),
+            style: TextStyle(color: Color(0xFF0F56FA), fontSize: 15, fontWeight: FontWeight.bold),
           ),
         ),
         Expanded(
           child: Text(
             text,
-            style: const TextStyle(
-              color: Color(0xFF1E3A8A),
-              fontSize: 13,
-              height: 1.4,
-              fontWeight: FontWeight.w400,
-            ),
+            style: const TextStyle(color: Color(0xFF1E3A8A), fontSize: 13, height: 1.4, fontWeight: FontWeight.w400),
           ),
         ),
       ],
