@@ -66,7 +66,8 @@ No external libraries are used for parsing or validation. The core parsing rules
 ## Libraries Used
 
 * [**GetX** (`get: ^4.6.6`)](https://pub.dev/packages/get): For lightweight state management, reactive streams (`Rx`), and dependency injection.
-* [**Image Picker** (`image_picker: ^1.1.2`)](https://pub.dev/packages/image_picker): For picking/capturing images via the camera and system gallery.
+* [**Camera** (`camera: ^0.12.0+1`)](https://pub.dev/packages/camera): For controlling device cameras, displaying real-time inline viewfinder previews, and snapping photos.
+* [**Image Picker** (`image_picker: ^1.1.2`)](https://pub.dev/packages/image_picker): For picking/uploading images from the system gallery.
 * [**Google ML Kit Text Recognition** (`google_mlkit_text_recognition: ^0.13.0`)](https://pub.dev/packages/google_mlkit_text_recognition): On-device ML Kit OCR for low-latency text extraction without external API overhead.
 
 ---
@@ -87,7 +88,7 @@ No external libraries are used for parsing or validation. The core parsing rules
 
 1. **Backend / Cloud OCR Services**:
    * **Why**: To adhere strictly to the objective of offline-first local scanning and avoiding network latencies or billing costs. On-device Google ML Kit is used instead.
-2. **Real-time Camera Frame Stream Processing**:
-   * **Why**: Setting up crop-rect viewports for camera stream frames (using camera controllers) adds significant platform-specific code complexity, drains battery quickly, and causes emulator crashes. Using `image_picker` to snap high-resolution pictures is cross-platform, handles permissions automatically, supports gallery uploads, and provides high-fidelity static frames for OCR.
+2. **Continuous Real-time OCR Stream Processing**:
+   * **Why**: Real-time continuous processing of every camera feed frame (doing OCR 30 times per second) results in high CPU thrashing, high battery drainage, and very noisy OCR reads (blurry frames yield bad text). Instead, we use a live inline viewfinder preview, and run high-resolution OCR on-demand when the user clicks capture, which provides the highest text recognition accuracy and optimal device performance.
 3. **External NLP/Parsing Libraries**:
    * **Why**: The assignment instructions explicitly command: *"You must NOT use any library for parsing extracted data."* Therefore, all extraction is performed via native Regex and manual scoring logic.
